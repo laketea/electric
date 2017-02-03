@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可视化</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="libs/jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="libs/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="libs/raphael/raphael.min.js"></script>
+    <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="libs/greensock-js/TweenMax.js"></script>
+    <script type="text/javascript" src="libs/greensock-js/plugins/CSSPlugin.js"></script>
+    <script type="text/javascript" src="libs/greensock-js/easing/EasePack.js"></script>
+    <script type="text/javascript" src="libs/greensock-js/TimeLineLite.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <div class="header_content header_left">国网四川省电力公司</div>
+        <div class="header_content header_right">2016年2月8日</div>
+        <div class="header_content header_center">整体概况</div>
+    </header>
+    <!-- 首页情况 -->
+    <!-- <section class="content">
+        <ul id="menu">
+            <li class="menu_list menu_list1">
+                <span>售电情况</span>
+                <div class="content1">
+                    <span>年计划售电情况</span>
+                    <span>21000亿kW-h</span>
+                </div>
+                <div class="content2">
+                    <span>年累计售电量</span>
+                    <span>1768亿kW-h</span>
+                </div>
+                <div class="content3">
+                    <span>当期售电量</span>
+                    <span>168亿kW-h</span>
+                </div>
+                <div class="content4">
+                    <span>累计增长率</span>
+                    <span>-15%</span>
+                </div>
+                <div class="content5">
+                    <span>同期增长率</span>
+                    <span>20%</span>
+                </div>
+            </li>
+            <li class="menu_list menu_list2">
+                <span>市场预测</span>
+                <div class="content1">
+                    <span>售电总量</span>
+                    <span>187亿kW-h</span>
+                </div>
+                <div class="content2">
+                    <span>大工业</span>
+                    <span>67.5亿kW-h</span>
+                </div>
+                <div class="content3">
+                    <span>居民</span>
+                    <span>32.11亿kW-h</span>
+                </div>
+                <div class="content4">
+                    <span>商业</span>
+                    <span>34.67亿kW-h</span>
+                </div>
+                <div class="content5">
+                    <span>水泥</span>
+                    <span>27.58亿kW-h</span>
+                </div>
+            </li>
+            <li class="menu_list menu_list3">
+                <span>宏观经济</span>
+                <div class="content1">
+                    指数类
+                </div>
+                <div class="content2">
+                    <span>宏观经济景气先行指数</span>
+                    <span>31.5</span>
+                </div>
+                <div class="content3">
+                    <span>制造业采购经理指数</span>
+                    <span>45.2</span>
+                </div>
+                <div class="content4">
+                    <span>工业品出厂价格指数</span>
+                    <span>665.5</span>
+                </div>
+            </li>
+            <li class="menu_list menu_list4">
+                <span>重点行业及龙头企业</span>
+                <div class="content1">
+                    <span>重点行业销售总量</span>
+                    <span>169亿kW-h</span>
+                </div>
+                <div class="content2">
+                    <span>钢铁-成都玉龙化工有限公司</span>
+                    <span>34.6</span>
+                </div>
+                <div class="content3">
+                    <span>PVC-成都玉龙化工有限公司</span>
+                    <span>24.5</span>
+                </div>
+                <div class="content4">
+                    <span>电解铝-成都玉龙化工有限公司</span>
+                    <span>19.2</span>
+                </div>
+            </li>
+        </ul>
+        <div id="map"></div>
+    </section> -->
+
+    <!-- 售电情况 -->
+    <section class="content hidden">
+        <div class="left">
+            <div id="circle">
+            </div>
+            <!-- <div id="sale_map">
+                <div class="line"></div>
+                <div class="line_content"></div>
+            </div> -->
+            <div id="sale_mini_map">
+                <div class="line line1"></div>
+                <div class="line line2"></div>
+                <div class="line line3"></div>
+                <div class="sale_content content1">
+                    <span>负荷量</span>
+                    <ul>
+                        <li>
+                            <span>本年最大负荷</span>
+                            <span>2.67万kW</span> 
+                        </li>
+                        <li>
+                            <span>历史最大负荷</span>
+                            <span>2.37万kW</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sale_content content2">
+                    <span>售电量</span>
+                    <ul>
+                        <li>
+                            <span>本期售电量</span>
+                            <span>65亿kW-h</span>
+                        </li>
+                        <li>
+                            <span>同期售电量</span>
+                            <span>58亿kW-h</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sale_content content3">
+                    <!-- <span>温度</span>
+                    <p></p>
+                    <p></p>
+                    <p></p> -->
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <!-- <ul id="sale_list">
+                <li>
+                    <span class="title">售电规模排名</span>
+                    <ol id="sdgm" class="sale_order">
+                        <li>
+                            <span>1 成都</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                        <li>
+                            <span>2 乐山</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                        <li>
+                            <span>3 绵阳</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                        <li>
+                            <span>4 阿坝</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                        <li>
+                            <span>5 天府</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                        <li>
+                            <span>6 攀枝花</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                        <li>
+                            <span>7 绵阳</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                        <li>
+                            <span>8 雅安</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <span class="title">售电量增速排名</span>
+                    <ol id="sdl" class="sale_order">
+                        <li>
+                            <span>1 成都</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                        <li>
+                            <span>2 乐山</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                        <li>
+                            <span>3 绵阳</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                        <li>
+                            <span>4 阿坝</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                        <li>
+                            <span>5 天府</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                        <li>
+                            <span>6 攀枝花</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                        <li>
+                            <span>7 绵阳</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                        <li>
+                            <span>8 雅安</span>
+                            <span>412亿kW-h</span>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <span class="title">增长贡献率排名</span>
+                    <ol id="zzl" class="sale_order">
+                        <li>
+                            <span>1 成都</span>
+                            <span>39.09%</span>
+                        </li>
+                        <li>
+                            <span>1 成都</span>
+                            <span>39.09%</span>
+                        </li>
+                        <li>
+                            <span>1 成都</span>
+                            <span>39.09%</span>
+                        </li>
+                        <li>
+                            <span>1 成都</span>
+                            <span>39.09%</span>
+                        </li>
+                        <li>
+                            <span>1 成都</span>
+                            <span>39.09%</span>
+                        </li>
+                        <li>
+                            <span>1 成都</span>
+                            <span>39.09%</span>
+                        </li>
+                        <li>
+                            <span>1 成都</span>
+                            <span>39.09%</span>
+                        </li>
+                        <li>
+                            <span>1 成都</span>
+                            <span>39.09%</span>
+                        </li>
+                    </ol>
+                </li>
+            </ul> -->
+            <ul id="sale_list_map">
+                <li>
+                    <span class="title">地市售电量分析</span>
+                </li>
+                <li>
+                    <span class="title">重点行业售电量趋势</span>
+                </li>
+                <li>
+                    <span class="title">居民/商业售电温敏关系</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 重点行业及龙头企业 -->
+    <section class="content hidden">
+        
+    </section>
+</body>
+
+</html>
