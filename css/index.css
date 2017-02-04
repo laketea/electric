@@ -143,10 +143,8 @@
  }
  
  .menu_list1>div.content1 {
-     padding-top: 70px;
      left: 20px;
      top: 45px;
-     background: url(../images/index/icons_01_32.png) no-repeat 30px 10px;
  }
  
  .menu_list1>div.content2 {
@@ -155,18 +153,22 @@
  }
  
  .menu_list1>div.content3 {
-     left: 150px;
-     top: 120px;
+     left: 280px;
+     top: 45px;
  }
  
  .menu_list1>div.content4 {
-     left: 280px;
-     top: 45px;
+     left: 12px;
+     top: 120px;
      padding-bottom: 40px;
-     background: url(../images/index/icons_01_36.png) no-repeat left 30px;
  }
  
  .menu_list1>div.content5 {
+     left:150px;
+     top: 120px;
+     background: url(../images/index/icons_01_36.png) no-repeat left 30px;
+ }
+ .menu_list1>div.content6 {
      left: 280px;
      top: 120px;
      background: url(../images/index/icons_01_40.png) no-repeat left 30px;
@@ -182,16 +184,25 @@
      height: 25px;
      color: red;
      position: relative;
-     left: 50px;
+     left: 40px;
  }
  
  .menu_list1>div.content5>span:nth-child(2) {
+     width: 45px;
+     height: 25px;
+     color: red;
+     position: relative;
+     left: 50px;
+ }
+ .menu_list1>div.content6>span:nth-child(2) {
      width: 45px;
      height: 25px;
      color: green;
      position: relative;
      left: 50px;
  }
+
+
  /*two*/
  
  .menu_list2>div {
@@ -668,4 +679,10 @@
         margin-left: -14%;
         padding-left:14px;
         background-image: url(../images/index/icons_01_22.png);
+    }
+    #sale_list_map .sale_list_data{
+        position: absolute;
+        left: -4%;
+        /*top: 18%;*/
+        color: white;
     }

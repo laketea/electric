@@ -16,7 +16,7 @@
     <script type="text/javascript" src="libs/greensock-js/plugins/CSSPlugin.js"></script>
     <script type="text/javascript" src="libs/greensock-js/easing/EasePack.js"></script>
     <script type="text/javascript" src="libs/greensock-js/TimeLineLite.js"></script>
-    <script type="text/javascript" src="scripts/summary.js"></script>
+    <!-- <script type="text/javascript" src="scripts/summary.js"></script> -->
     <script type="text/javascript" src="scripts/scale.js"></script>
 </head>
 
@@ -27,7 +27,7 @@
         <div class="header_content header_center">整体概况</div>
     </header>
     <!-- 首页情况 -->
-    <section id="summary" class="content">
+    <section id="summary" class="content hidden">
         <ul id="menu">
             <li class="menu_list menu_list1">
                 <span>售电情况</span>
@@ -44,10 +44,14 @@
                     <span>168亿kW-h</span>
                 </div>
                 <div class="content4">
+                    <span>年计划售电完成率</span>
+                    <span>99%</span>
+                </div>
+                <div class="content5">
                     <span>累计增长率</span>
                     <span>-15%</span>
                 </div>
-                <div class="content5">
+                <div class="content6">
                     <span>同期增长率</span>
                     <span>20%</span>
                 </div>
@@ -58,19 +62,19 @@
                     <span>售电总量</span>
                     <span>187亿kW-h</span>
                 </div>
-                <div class="content2">
+                <div class="content2 change">
                     <span>大工业</span>
                     <span>67.5亿kW-h</span>
                 </div>
-                <div class="content3">
+                <div class="content3 change">
                     <span>居民</span>
                     <span>32.11亿kW-h</span>
                 </div>
-                <div class="content4">
+                <div class="content4 change">
                     <span>商业</span>
                     <span>34.67亿kW-h</span>
                 </div>
-                <div class="content5">
+                <div class="content5 change">
                     <span>水泥</span>
                     <span>27.58亿kW-h</span>
                 </div>
@@ -115,9 +119,8 @@
         </ul>
         <div id="map"></div>
     </section>
-
     <!-- 售电情况 -->
-    <section id="scale" class="content hidden">
+    <section id="scale" class="content">
         <div class="left">
             <div id="circle">
             </div>
@@ -134,7 +137,7 @@
                     <ul>
                         <li>
                             <span>本年最大负荷</span>
-                            <span>2.67万kW</span> 
+                            <span>2.67万kW</span>
                         </li>
                         <li>
                             <span>历史最大负荷</span>
@@ -156,12 +159,11 @@
                     </ul>
                 </div>
                 <div class="sale_content content3">
-                    
                 </div>
             </div>
         </div>
         <div class="right">
-            <ul id="sale_list">
+            <ul id="sale_list" class="hidden">
                 <li>
                     <span class="title">售电规模排名</span>
                     <ol id="sdgm" class="sale_order">
@@ -274,24 +276,33 @@
                     </ol>
                 </li>
             </ul>
-            <ul id="sale_list_map" class="hidden">
+            <ul id="sale_list_map" class="">
                 <li>
                     <span class="title">地市售电量分析</span>
+                    <div id="city_data" class="sale_list_data" style="height:230px;width: 600px;">
+                    </div>
                 </li>
                 <li>
-                    <span class="title">重点行业售电量趋势</span>
+                    <span class="title ">重点行业售电量趋势</span>
+                    <div id="company_data" class="sale_list_data" style="height:230px;width: 600px;">
+                    </div>
                 </li>
                 <li>
-                    <span class="title">居民/商业售电温敏关系</span>
+                    <span class="title ">居民/商业售电温敏关系</span>
+                    <div class="sale_list_data ">
+                        1212
+                    </div>
                 </li>
             </ul>
         </div>
     </section>
-
     <!-- 重点行业及龙头企业 -->
-    <section id="company" class="content hidden">
-        
+    <section id="company " class="content hidden ">
     </section>
+
+
+    <script src="http://echarts.baidu.com/build/dist/echarts.js "></script>
+    <script type="text/javascript" src="data/sale.js"></script>
 </body>
 
 </html>
