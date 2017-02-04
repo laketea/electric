@@ -27,6 +27,3 @@ var areas = {
     "51490": "阿坝"
 }
 
-var paths = {
-
-}

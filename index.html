@@ -14,8 +14,10 @@
     <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="libs/greensock-js/TweenMax.js"></script>
     <script type="text/javascript" src="libs/greensock-js/plugins/CSSPlugin.js"></script>
+    <script type="text/javascript" src="libs/greensock-js/plugins/RaphaelPlugin.js"></script>
     <script type="text/javascript" src="libs/greensock-js/easing/EasePack.js"></script>
     <script type="text/javascript" src="libs/greensock-js/TimeLineLite.js"></script>
+    <script type="text/javascript" src="scripts/path.js"></script>
     <script type="text/javascript" src="scripts/summary.js"></script>
     <script type="text/javascript" src="scripts/scale.js"></script>
 </head>
@@ -26,6 +28,7 @@
         <div class="header_content header_left">国网四川省电力公司</div>
         <div class="header_content header_right">2016年2月8日</div>
         <div class="header_content header_center">整体概况</div>
+        <button class="control">暂停</button>
     </header>
     <!-- 首页情况 -->
     <section id="summary" class="content">
@@ -114,7 +117,7 @@
                 </div>
             </li>
         </ul>
-        <div id="map"></div>
+        <div id="summary-map"></div>
     </section>
 
     <!-- 售电情况 -->

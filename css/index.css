@@ -43,6 +43,13 @@
      line-height: 49px;
      opacity: 0;
  }
+
+ #header .control{
+    position: absolute;
+    right: 11px;
+    top: 15px;
+    padding: 5px;
+ }
  
  .header_content {
      color: #44D0CD;
@@ -366,17 +373,21 @@
      color: red;
  }
  
- #map {
+ #summary-map {
      position: absolute;
      width: 930px;
      height: 408px;
      top: 250px;
      left: 220px;
-     /*margin: 120px auto 0px;*/
-     background: url(../images/index/index_map.png) no-repeat center center;
-     opacity: 0;
-     animation: fadeIn 5s linear 3s forwards;
  }
+
+#summary-map > svg{
+    transform: rotateX(35deg) rotateZ(8deg);
+    position: relative;
+    top: -180px!important;
+    transform-origin: 50% 50% 0;
+    /*filter: url(#map-filter);*/
+}
  
  @keyframes fadeIn {
      0% {
