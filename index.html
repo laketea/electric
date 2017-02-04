@@ -16,6 +16,8 @@
     <script type="text/javascript" src="libs/greensock-js/plugins/CSSPlugin.js"></script>
     <script type="text/javascript" src="libs/greensock-js/easing/EasePack.js"></script>
     <script type="text/javascript" src="libs/greensock-js/TimeLineLite.js"></script>
+    <script type="text/javascript" src="scripts/summary.js"></script>
+    <script type="text/javascript" src="scripts/scale.js"></script>
 </head>
 
 <body>
@@ -25,7 +27,7 @@
         <div class="header_content header_center">整体概况</div>
     </header>
     <!-- 首页情况 -->
-    <!-- <section class="content">
+    <section id="summary" class="content">
         <ul id="menu">
             <li class="menu_list menu_list1">
                 <span>售电情况</span>
@@ -112,18 +114,18 @@
             </li>
         </ul>
         <div id="map"></div>
-    </section> -->
+    </section>
 
     <!-- 售电情况 -->
-    <section class="content hidden">
+    <section id="scale" class="content hidden">
         <div class="left">
             <div id="circle">
             </div>
-            <!-- <div id="sale_map">
+            <div id="sale_map">
                 <div class="line"></div>
                 <div class="line_content"></div>
-            </div> -->
-            <div id="sale_mini_map">
+            </div>
+            <div id="sale_mini_map" class="hidden">
                 <div class="line line1"></div>
                 <div class="line line2"></div>
                 <div class="line line3"></div>
@@ -154,28 +156,25 @@
                     </ul>
                 </div>
                 <div class="sale_content content3">
-                    <!-- <span>温度</span>
-                    <p></p>
-                    <p></p>
-                    <p></p> -->
+                    
                 </div>
             </div>
         </div>
         <div class="right">
-            <!-- <ul id="sale_list">
+            <ul id="sale_list">
                 <li>
                     <span class="title">售电规模排名</span>
                     <ol id="sdgm" class="sale_order">
                         <li>
-                            <span>1 成都</span>
+                            <span><strong class="first">1</strong> 成都</span>
                             <span>412亿kW-h</span>
                         </li>
                         <li>
-                            <span>2 乐山</span>
+                            <span><strong class="second">2</strong> 乐山</span>
                             <span>412亿kW-h</span>
                         </li>
                         <li>
-                            <span>3 绵阳</span>
+                            <span><strong class="third">3</strong> 绵阳</span>
                             <span>412亿kW-h</span>
                         </li>
                         <li>
@@ -204,15 +203,15 @@
                     <span class="title">售电量增速排名</span>
                     <ol id="sdl" class="sale_order">
                         <li>
-                            <span>1 成都</span>
+                            <span><strong class="first">1</strong> 成都</span>
                             <span>412亿kW-h</span>
                         </li>
                         <li>
-                            <span>2 乐山</span>
+                            <span><strong class="second">2</strong> 乐山</span>
                             <span>412亿kW-h</span>
                         </li>
                         <li>
-                            <span>3 绵阳</span>
+                            <span><strong class="third">3</strong> 绵阳</span>
                             <span>412亿kW-h</span>
                         </li>
                         <li>
@@ -241,41 +240,41 @@
                     <span class="title">增长贡献率排名</span>
                     <ol id="zzl" class="sale_order">
                         <li>
-                            <span>1 成都</span>
+                            <span><strong class="first">1</strong> 成都</span>
                             <span>39.09%</span>
                         </li>
                         <li>
-                            <span>1 成都</span>
+                            <span>5 成都</span>
                             <span>39.09%</span>
                         </li>
                         <li>
-                            <span>1 成都</span>
+                            <span><strong class="second">2</strong> 天府</span>
                             <span>39.09%</span>
                         </li>
                         <li>
-                            <span>1 成都</span>
+                            <span>6 成都</span>
                             <span>39.09%</span>
                         </li>
                         <li>
-                            <span>1 成都</span>
+                            <span><strong class="third">3</strong> 攀枝花</span>
                             <span>39.09%</span>
                         </li>
                         <li>
-                            <span>1 成都</span>
+                            <span>7 成都</span>
                             <span>39.09%</span>
                         </li>
                         <li>
-                            <span>1 成都</span>
+                            <span>4 成都</span>
                             <span>39.09%</span>
                         </li>
                         <li>
-                            <span>1 成都</span>
+                            <span>8 成都</span>
                             <span>39.09%</span>
                         </li>
                     </ol>
                 </li>
-            </ul> -->
-            <ul id="sale_list_map">
+            </ul>
+            <ul id="sale_list_map" class="hidden">
                 <li>
                     <span class="title">地市售电量分析</span>
                 </li>
@@ -290,7 +289,7 @@
     </section>
 
     <!-- 重点行业及龙头企业 -->
-    <section class="content hidden">
+    <section id="company" class="content hidden">
         
     </section>
 </body>

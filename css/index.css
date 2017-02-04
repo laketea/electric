@@ -11,6 +11,9 @@
  ul,ol{
     list-style: none;
  }
+ .hidden{
+    display: none;
+ }
  
  #header {
      width: 100%;
@@ -48,12 +51,12 @@
  
  #menu {
      position: relative;
-     left: 0px;
+     /*left: 0px;*/
      width: 1277px;
      margin: 20px auto 0px;
      list-style: none;
      padding-top: 20px;
-     opacity: 1;
+     /*opacity: 1;*/
      /*overflow: hidden;*/
      /*animation: right2left 10s linear 1s forwards;*/
  }
@@ -348,8 +351,8 @@
      left: 220px;
      /*margin: 120px auto 0px;*/
      background: url(../images/index/index_map.png) no-repeat center center;
-     opacity: 1;
-     /*animation: fadeIn 8s linear 1s forwards;*/
+     opacity: 0;
+     animation: fadeIn 5s linear 3s forwards;
  }
  
  @keyframes fadeIn {
@@ -451,8 +454,9 @@
      width: 102px;
      height: 64px;
      background: url(../images/sale/line2.png) no-repeat;
-     top: 430px;
-     left: 330px;
+     top: 360px;
+     left: 250px;
+     opacity: 0;
  }
  /*具体地市的三项指标*/
  
@@ -461,8 +465,9 @@
      width: 257px;
      height: 157px;
      background: url(../images/sale/frame3.png) no-repeat;
-     left: 420px;
-     top: 450px;
+     left: 340px;
+     top: 380px;
+     opacity: 0;
  }
  
  #sale_list {
@@ -538,6 +543,16 @@
 #zzl>li{
     float: left;
     width: 50%;
+}
+
+.first{
+    color: yellow;
+}
+.second{
+    color:green;
+}
+.third{
+    color:blue;
 }
 
 
