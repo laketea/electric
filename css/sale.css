@@ -1,0 +1,328 @@
+/*===============================================================================================*/
+
+
+/*售电量情况*/
+
+#sale .left {
+    position: absolute;
+    width: 560px;
+    height: 560px;
+    left: 408px;
+    top: 80px;
+}
+
+#sale .right {
+    position: absolute;
+    left: 770px;
+}
+
+#halo {
+    position: absolute;
+    width: 606px;
+    height: 606px;
+    border-radius: 50%;
+    top: -23px;
+    left: -23px;
+    opacity: 0;
+    background: url(../images/sale/mirror.png) no-repeat;
+}
+
+#circle {
+    position: absolute;
+    width: 560px;
+    height: 560px;
+    border-radius: 50%;
+    top: 0;
+    left: 1px;
+}
+
+#sale_map {
+    position: absolute;
+    width: 560px;
+    height: 560px;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transform: translateZ(0);
+}
+
+#sale_map > svg {
+    overflow: hidden;
+    position: relative;
+    transform-origin: 50% 50%;
+    top: -32px!important;
+    left: -81px!important;
+    transform: scale(0.65);
+}
+
+#sale_tip_wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+}
+
+#sale_tip_wrap .area_tip {
+    position: absolute;
+    left: 280px;
+    top: 280px;
+}
+
+#sale_tip_wrap .line {
+    position: absolute;
+    width: 0;
+    /*width: 102px;*/
+    height: 64px;
+    background: url(../images/sale/line2.png) no-repeat;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    transform: rotateX(180deg)
+}
+
+
+/*具体地市的三项指标*/
+
+#sale_tip_wrap .line_content {
+    position: absolute;
+    width: 257px;
+    height: 157px;
+    left: 92px;
+    top: -80px;
+    background: url(../images/sale/frame3.png) no-repeat;
+    overflow: hidden;
+    opacity: 0;
+}
+
+#sale_list {
+    position: relative;
+    list-style: none;
+    margin-top: 60px;
+}
+
+#sale_list>li {
+    position: relative;
+    width: 269px;
+    height: 350px;
+    float: left;
+    background: url(../images/sale/frame1.png) no-repeat;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+#sale_list>li span.title {
+    position: absolute;
+    left: 50%;
+    top: 2%;
+    margin-left: -18%;
+    padding-left: 20px;
+    background: url(../images/index/icons_01_19.png) no-repeat left center;
+    color: #F9F3F7;
+    font-size: 13px;
+}
+
+#sale_list>li:nth-child(2) span.title {
+    margin-left: -19%;
+    padding-left: 14px;
+    background-image: url(../images/index/icons_01_22.png);
+}
+
+#sale_list>li:nth-child(3) {
+    width: 545px;
+    height: 204px;
+    margin-top: 20px;
+    background-image: url(../images/sale/frame2.png);
+}
+
+#sale_list>li:nth-child(3) span.title {
+    margin-left: -9%;
+    top: 4%;
+    padding-left: 14px;
+    background-image: url(../images/index/icons_01_22.png);
+}
+
+.sale_order {
+    position: absolute;
+    left: 10px;
+    top: 50px;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 12px;
+}
+
+.sale_order li {
+    line-height: 35px;
+    overflow: hidden;
+}
+
+.sale_order li>span:nth-child(1) {
+    float: left;
+    margin-left: 10px;
+}
+
+.sale_order li>span:nth-child(2) {
+    float: right;
+    margin-right: 35px;
+}
+
+#zzl>li {
+    float: left;
+    width: 50%;
+}
+
+.first {
+    color: yellow;
+}
+
+.second {
+    color: green;
+}
+
+.third {
+    color: blue;
+}
+
+#sale_select_tip {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+#sale_select_tip .line {
+    position: absolute;
+    width: 53px;
+    height: 50px;
+    background: url(../images/sale/line1.png) no-repeat;
+    top: 230px;
+    left: 420px;
+}
+
+#sale_select_tip .line2 {
+    /*width: 102px;*/
+    width: 0;
+    height: 64px;
+    background-image: url(../images/sale/line2.png);
+    top: 320px;
+    left: 320px;
+}
+
+#sale_select_tip .line3 {
+    width: 0;
+    /*width: 127px;*/
+    height: 125px;
+    background-image: url(../images/sale/line3.png);
+    top: 160px;
+    left: 297px;
+    /*left: 170px;*/
+    background-position: 100% 0;
+}
+
+
+/*具体地市的三项指标*/
+
+#sale_select_tip .sale_content {
+    position: absolute;
+    width: 257px;
+    height: 157px;
+    background: url(../images/sale/frame4.png) no-repeat;
+    left: 350px;
+    top: 82px;
+    opacity: 0;
+}
+
+#sale_select_tip .content2 {
+    left: 410px;
+    top: 300px;
+}
+
+#sale_select_tip .content3 {
+    left: -80px;
+    top: 70px;
+}
+
+.sale_content>span {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    color: yellow;
+    font-size: 14px;
+    background: url(../images/sale/ICON4.png) no-repeat left center;
+    padding: 10px 10px 10px 50px;
+}
+
+#sale_select_tip .sale_content ul {
+    position: absolute;
+    left: 20px;
+    top: 75px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 13px;
+}
+
+#sale_select_tip .sale_content ul li {
+    line-height: 30px;
+    padding-left: 15px;
+    background: url(../images/sale/circle.png) no-repeat left center;
+    overflow: hidden;
+}
+
+#sale_select_tip .sale_content ul li span:nth-child(1) {
+    float: left;
+}
+
+#sale_select_tip .sale_content ul li span:nth-child(2) {
+    float: right;
+    margin-right: 50px;
+}
+
+#sale_list_map {
+    margin-top: 40px;
+    opacity: 0;
+}
+
+#sale_list_map li {
+    position: relative;
+    width: 545px;
+    height: 204px;
+    background: url(../images/sale/frame2.png) no-repeat;
+    margin-right: 40px;
+    margin-top: 10px;
+}
+
+#sale_list_map li span.title {
+    position: absolute;
+    left: 50%;
+    top: 4%;
+    margin-left: -11%;
+    padding-left: 20px;
+    background: url(../images/index/icons_01_19.png) no-repeat left center;
+    color: #F9F3F7;
+    font-size: 13px;
+}
+
+#sale_list_map li:nth-child(2) span.title {
+    margin-left: -12%;
+    padding-left: 14px;
+    background-image: url(../images/index/icons_01_22.png);
+}
+
+#sale_list_map li:nth-child(3) span.title {
+    margin-left: -14%;
+    padding-left: 14px;
+    background-image: url(../images/index/icons_01_22.png);
+}
+
+#sale_list_map .sale_list_data {
+    position: absolute;
+    left: -4%;
+    /*top: 18%;*/
+    color: white;
+}
