@@ -399,6 +399,10 @@
     transform-origin: 50% 50% 0;
     /*filter: url(#map-filter);*/
 }
+
+.summary-map-shadow{
+
+}
  
  @keyframes fadeIn {
      0% {
@@ -464,57 +468,95 @@
  /*===============================================================================================*/
  /*售电量情况*/
  
- .left {
+ #sale .left {
      position: absolute;
-     left: 50px;
+     width: 560px;
+     height: 560px;
+     left: 408px;
+     top: 80px;
  }
  
- .right {
+ #sale .right {
      position: absolute;
      left: 770px;
  }
 
- #circle {
+ #halo {
      position: absolute;
      width: 606px;
      height: 606px;
      border-radius: 50%;
-     top: 58px;
-     left:30px;
+     top: -23px;
+     left: -23px;
+     opacity: 0;
      background: url(../images/sale/mirror.png) no-repeat;
+ }
+
+ #circle {
+    position: absolute;
+     width: 560px;
+     height: 560px;
+     border-radius: 50%;
+     top: 0;
+     left: 1px;
  }
  
  #sale_map {
      position: absolute;
-     width: 585px;
-     height: 590px;
+     width: 560px;
+     height: 560px;
      border-radius: 50%;
-     top: 68px;
-     left: 40px;
-     background: url(../images/sale/map.png) no-repeat;
+     top: 0;
+     left: 0;
+     overflow: hidden;
+     transform: translateZ(0);
  }
- 
-  #sale_map .line {
+
+ #sale_map > svg{
+    overflow: hidden;
+    position: relative;
+    transform-origin: 50% 50%;
+    top: -32px!important;
+    left: -81px!important;
+    transform: scale(0.65);
+ }
+
+ #sale_tip_wrap{
+    position: absolute;
+    left: 0;
+    top: 0;
+ }
+
+ #sale_tip_wrap .area_tip{
      position: absolute;
-     width: 102px;
+     left: 280px;
+     top: 280px;
+  }
+ 
+  #sale_tip_wrap .line {
+     position: absolute;
+     width: 0;
+     /*width: 102px;*/
      height: 64px;
      background: url(../images/sale/line2.png) no-repeat;
-     top: 360px;
-     left: 250px;
-     opacity: 0;
+     bottom: 0;
+     left: 0;
+     overflow: hidden;
+     transform: rotateX(180deg)
  }
  /*具体地市的三项指标*/
- 
-  #sale_map .line_content {
+  
+  #sale_tip_wrap .line_content {
      position: absolute;
      width: 257px;
      height: 157px;
+     left: 92px;
+     top: -80px;
      background: url(../images/sale/frame3.png) no-repeat;
-     left: 340px;
-     top: 380px;
+     overflow: hidden;
      opacity: 0;
  }
- 
+
  #sale_list {
     position: relative;
      list-style: none;
@@ -685,6 +727,7 @@
 
      #sale_list_map{
         margin-top: 40px;
+        opacity: 0;
     }
     #sale_list_map li{
         position: relative;

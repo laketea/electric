@@ -1,16 +1,23 @@
 //整体概况
 $(function() {
 	$(".header_center").html("整体概况");
-    var master = this.master = new TimelineMax({});
-    var mapAreas = {};
-    var paper;
+    var master = this.master = new TimelineMax({
+        onComplete: function(){
+            if(window.scaleMaster){
+                window.scaleMaster.play();
+            }
+        }
+    });
+    var paper,
+        $mapShadow,
+        mapAreas = {};
     //初始化
     initialize();
 
     master.add([earthStep(), headerStep()]);
-    master.add(mapStep());
-    master.add(menuStep());
-    master.add([menuList2Step(),menuList3Step()]);
+    // master.add(mapStep());
+    // master.add(menuStep());
+    // master.add([menuList2Step(),menuList3Step()]);
 
     function initialize() {
 
@@ -25,6 +32,9 @@ $(function() {
                 "stroke-width": 1,
                 "stroke-linejoin": "round"
             };
+
+            $mapShadow = paper.image("./images/index/map_shadow.png", 0, 12, 930, 800)
+
 
             for (var key in window.paths) {
                 var path = mapAreas[key] = paper.path(window.paths[key]);
@@ -46,6 +56,8 @@ $(function() {
                         this.animate({ fill: "#0f2646", stroke: "#00fcff" }, 500);
                     });
             };
+
+
         }
 
         function bindEvent() {
@@ -122,9 +134,13 @@ $(function() {
         step.add(needBackTweens);
 
         //倾斜到60度
-        step.add(TweenMax.to($mapSvg, 1, {
+        step.add([TweenMax.to($mapSvg, 1, {
             transform: 'rotateX(60deg) rotateZ(8deg)'
-        }));
+        }),TweenMax.to($mapShadow, 1, {
+            raphael: {
+                y: 30
+            }
+        })]);
 
         //显示柱子
         var haloTweens = [];

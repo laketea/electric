@@ -31,7 +31,7 @@
         <button class="control">暂停</button>
     </header>
     <!-- 首页情况 -->
-    <section id="summary" class="content">
+    <section id="summary" class="content hidden">
         <ul id="menu">
             <li class="menu_list menu_list1">
                 <span>售电情况</span>
@@ -121,16 +121,26 @@
                 </div>
             </li>
         </ul>
-        <div id="summary-map"></div>
+        <div id="summary-map">
+            <div class="summary-map-shadow"></div>
+        </div>
     </section>
     <!-- 售电情况 -->
-    <section id="scale" class="content hidden">
+    <section id="sale" class="content ">
         <div class="left">
+            <div id="halo">
+            </div>
             <div id="circle">
             </div>
             <div id="sale_map">
-                <div class="line"></div>
-                <div class="line_content"></div>
+            </div>
+            <div id="sale_tip_wrap">
+                <div class="area_tip">
+                    <div class="line"></div>
+                    <div class="line_content">
+                        <p class="line_content_inner"></p>
+                    </div>
+                </div>
             </div>
             <div id="sale_mini_map" class="hidden">
                 <div class="line line1"></div>
@@ -163,12 +173,11 @@
                     </ul>
                 </div>
                 <div class="sale_content content3">
-                    
                 </div>
             </div>
         </div>
         <div class="right">
-            <ul id="sale_list" class="hidden">
+            <ul id="sale_list" class="">
                 <li>
                     <span class="title">售电规模排名</span>
                     <ol id="sdgm" class="sale_order">
@@ -304,9 +313,7 @@
     <!-- 重点行业及龙头企业 -->
     <section id="company " class="content hidden ">
     </section>
-
-
-    <script src="http://echarts.baidu.com/build/dist/echarts.js "></script>
+    <script src="libs/echarts/echarts.js"></script>
     <script type="text/javascript" src="data/sale.js"></script>
 </body>
 
