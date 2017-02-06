@@ -5,7 +5,7 @@ $(function() {
         this.$el = $('#sale');
         this.title = '售电情况';
         this.master = new TimelineMax({
-            // paused: true,
+            paused: true,
         });
         this.paper = null; //svg paper
         this.advRegions = ['成都', '乐山', '德阳'];
@@ -16,11 +16,10 @@ $(function() {
     SalePage.prototype = {
 
         initialize: function() {
-
         },
 
         play: function() {
-            // this.master.resume();
+            this.master.resume();
         },
 
         add: function(args) {
@@ -67,7 +66,6 @@ $(function() {
                         this.animate({ fill: fill, stroke: "#00fcff" }, 500);
                     })
                     .click(function() {
-                        console.log(key);
                         self._selectRegion(key);
                     });
             });
@@ -83,7 +81,7 @@ $(function() {
             return new TimelineLite({})
                 .add(TweenMax.to($halo, 1.5, { //画圆圈
                     opacity: 0.1,
-                    delay: 26,
+                    delay: 2,
                     onStart: function() {
                         drawCircle(1.5);
                     }
