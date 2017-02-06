@@ -682,7 +682,11 @@
     }
     #sale_list_map .sale_list_data{
         position: absolute;
+<<<<<<< Updated upstream
         left: -4%;
+=======
+        left: 1%;
+>>>>>>> Stashed changes
         /*top: 18%;*/
         color: white;
     }
