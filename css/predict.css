@@ -1,0 +1,16 @@
+#predict .viewport{
+	position: relative;
+	width: 1200px;
+	height: 340px;
+	background: #0b0f2a;
+	margin: 50px 88px;
+	border: 1px solid #eee;
+}
+
+#forest-pie{
+	position: absolute;
+	top: 20px;
+	right: 100px;
+	width: 400px;
+	height: 300px;
+}

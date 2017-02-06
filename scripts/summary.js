@@ -24,7 +24,7 @@ $(function() {
         },
 
         play: function() {
-            this.master.timeScale(1).resume();
+            this.master.resume();
         },
 
         add: function(args) {
