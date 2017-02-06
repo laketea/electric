@@ -1,12 +1,15 @@
 //售电情况
 $(function() {
 
+    var saleListTimer = null;
+    var saleListMapTimer = null;
     function SalePage() {
         this.$el = $('#sale');
         this.title = '售电情况';
         this.master = new TimelineMax({
             // paused: true,
         });
+        this.master.timeScale(6);
         this.paper = null; //svg paper
         this.advRegions = ['成都', '乐山', '德阳'];
         this.regions = {};
@@ -32,9 +35,23 @@ $(function() {
             this.$el.removeClass("hidden");
             this._updateTitle();
             this._drawMap();
-            this.add(this._saleMapStep())
+            this.add([this._earthStep(), this._headerStep()])
+                .add(this._saleMapStep())
                 .add(this._advRegionsStep());
             return this;
+        },
+
+        _earthStep: function() {
+            var $earth = $(".earth");
+            return TweenMax.to($earth, 4, {
+                opacity: 1
+            });
+        },
+        _headerStep: function() {
+            var $header = $("#header");
+            return TweenMax.to($header, 2, {
+                opacity: 1
+            });
         },
 
         _updateTitle: function(title) {
@@ -68,7 +85,11 @@ $(function() {
                     })
                     .click(function() {
                         console.log(key);
+                        window.index = 0;
                         self._selectRegion(key);
+                        clearInterval(saleListTimer);
+                        clearInterval(saleListMapTimer);
+                        $("#sale_list").css("opacity",0);
                     });
             });
         },
@@ -83,7 +104,7 @@ $(function() {
             return new TimelineLite({})
                 .add(TweenMax.to($halo, 1.5, { //画圆圈
                     opacity: 0.1,
-                    delay: 26,
+                    // delay: 26,
                     onStart: function() {
                         drawCircle(1.5);
                     }
@@ -134,7 +155,13 @@ $(function() {
             return new TimelineLite({
                 title: "售电情况",
                 onStart: function() {
-                    setInterval(function() {
+                    $(".sale_order li").css("opacity",0);
+                    $("#sale_list").css("display","block");
+                    setTimeout(function(){
+                        $(".sale_order li").css("opacity",1);
+                    },4000);
+
+                    saleListTimer = setInterval(function() {
                         $(".sale_order li").animate({
                             opacity: 0.25,
                             height: "toggle"
@@ -142,11 +169,11 @@ $(function() {
                             $(this).css("opacity", 1);
                             $(".sale_order li").slideDown(1000);
                         });
-                    }, 5000);
+                    },10000);
 
                 }
             }).add(
-                TweenMax.fromTo($obj, 1.5, {
+                TweenMax.fromTo($obj,2, {
                     opacity: 0,
                 }, {
                     opacity: 1,
@@ -207,11 +234,11 @@ $(function() {
 
             return new TimelineLite()
                 .add(this._zoomRegionTween(key))
+                .add(this._saleListMap())
                 .add(tipTween())
                 .add(TweenMax.to($saleList, 1, {
                     opacity: 0
                 }))
-                .add(this._saleListMap())
                 .play();
 
             function tipTween() {
@@ -300,18 +327,20 @@ $(function() {
 
         _saleListMap: function() {
             var step = new TimelineLite({
-                title: "售电情况"
-                    // onStart:function(){
-                    //  setInterval(function(){
-                    //      $("#sale_list_map .sale_list_data").animate({
-                    //          opacity: 0.25,
-                    // height: "toggle"
-                    //      },1000,function(){
-                    //          $(this).css("opacity",1);
-                    // $("#sale_list_map .sale_list_data").slideDown(1000);
-                    //      });
-                    //  },6000);
-                    // }
+                title: "售电情况",
+                onComplete:function(){
+                    window.drawSaleListMap();
+                    var saleListMapTimer =  setInterval(function(){
+                         $("#company_data").animate({
+                            opacity: 0.25,
+                            height: "toggle"
+                         },1000,function(){
+                             $("#company_data").css("opacity",1);
+                             window.drawSaleListMap();
+                             $("#company_data").slideDown(1000);
+                         });
+                     },16000);
+                }
             });
 
             var $obj = $("#sale_list_map");
