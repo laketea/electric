@@ -5,7 +5,12 @@ $(function() {
     function SummaryPage() {
         this.$el = $('#summary');
         this.title = '整体概况';
-        this.master = new TimelineMax({});
+        this.master = new TimelineMax({
+            paused: true,
+            onComplete: function() {
+                console.log("summary complete");
+            }
+        });
         this.paper = null; //svg paper
         this.$mapShadow = null;
         this.regions = {};
@@ -15,21 +20,27 @@ $(function() {
     SummaryPage.prototype = {
 
         initialize: function() {
-            this._updateTitle();
-            this._drawMap();
-            this.add([this._earthStep, this._headerStep])
-                .add(this._mapStep())
-                .add(this._regionBarStep())
-                .add(this._menuStep())
-                .add([this._menuList2Step(), this._menuList3Step()]);
+
         },
 
-        play: function(){
-            this.master.play();
+        play: function() {
+            this.master.timeScale(1).resume();
         },
 
         add: function(args) {
             return this.master.add(args);
+        },
+
+        render: function() {
+            this._updateTitle();
+            this._drawMap();
+            this.add([this._earthStep(), this._headerStep()])
+                .add(this._mapStep())
+                .add(this._regionBarStep())
+                .add(this._menuStep())
+                .add([this._menuList2Step(), this._menuList3Step()]);
+
+            return this;
         },
 
         _drawMap: function() {
@@ -216,11 +227,9 @@ $(function() {
             return TweenMax.fromTo($menu, 3, {
                 opacity: 0,
                 right: -1200,
-                delay: 5
             }, {
                 opacity: 1,
-                left: 0,
-                delay: 5
+                right: 0,
             });
         },
 

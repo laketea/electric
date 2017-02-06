@@ -26,15 +26,20 @@ $(function() {
         },
         start: function() {
             this.page = this.pages[0];
-            this.page.play();
+            this.page.render().play();
         },
         go: function(index) {
             //如果当前page动画正在进行中，则直接结束
             if(this.page && this.page.master.isActive()){
                 return;
             }
+            if(this.page){
+                this.page.master.stop();
+                this.page.master.clear();
+                this.page.$el.empty();
+            }
             this.page = this.pages[index];
-            this.page.play();
+            this.page.render().play();
         },
         goNext: function() {
             return this.go(Math.min(this.pages.length, _.indexOf(this.pages, this.page) + 1));

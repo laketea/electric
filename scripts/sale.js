@@ -4,7 +4,9 @@ $(function() {
     function SalePage() {
         this.$el = $('#sale');
         this.title = '售电情况';
-        this.master = new TimelineMax({});
+        this.master = new TimelineMax({
+            // paused: true,
+        });
         this.paper = null; //svg paper
         this.advRegions = ['成都', '乐山', '德阳'];
         this.regions = {};
@@ -14,20 +16,25 @@ $(function() {
     SalePage.prototype = {
 
         initialize: function() {
-            this._updateTitle();
-            this._drawMap();
-            this.add(this._saleMapStep())
-                .add(this._advRegionsStep());
+
         },
 
         play: function() {
-            this.$el.siblings().addClass("hidden");
-            this.$el.removeClass("hidden");
-            this.master.play();
+            // this.master.resume();
         },
 
         add: function(args) {
             return this.master.add(args);
+        },
+
+        render: function() {
+            this.$el.siblings().addClass("hidden");
+            this.$el.removeClass("hidden");
+            this._updateTitle();
+            this._drawMap();
+            this.add(this._saleMapStep())
+                .add(this._advRegionsStep());
+            return this;
         },
 
         _updateTitle: function(title) {
@@ -48,12 +55,10 @@ $(function() {
                 var fill = _.contains(self.advRegions, key) ? '#165dab' : '#0f2646';
                 var path = self.regions[key] = paper.path(window.paths[key]);
                 var box = path.getBBox();
-                // setTimeout(function() {
                 var text = paper.text(box.x + box.width / 2, box.y + box.height / 2, key);
                 text.attr({
                     fill: '#fff',
                 });
-                // });
                 path.attr(_.extend({ fill: fill }, attr))
                     .mouseover(function() {
                         this.animate({ fill: "#6666cc", stroke: "#fff" }, 500);
@@ -66,23 +71,19 @@ $(function() {
                         self._selectRegion(key);
                     });
             });
-            // for (var key in window.paths) {
-
-            // };
         },
 
         _saleMapStep: function() {
-            var step = new TimelineLite();
 
             var $left = $("#sale .left");
             var $map = $("#sale_map");
             var $halo = $("#halo");
             var $svgMap = $("#sale_map > svg");
 
-
-            return new TimelineLite()
+            return new TimelineLite({})
                 .add(TweenMax.to($halo, 1.5, { //画圆圈
-                    opacity: 0,
+                    opacity: 0.1,
+                    delay: 26,
                     onStart: function() {
                         drawCircle(1.5);
                     }
@@ -92,7 +93,8 @@ $(function() {
                     scale: 0
                 }, {
                     scale: 0.65
-                }, '+=2')).add([TweenMax.to($left, 1, { //地图左移
+                }))
+                .add([TweenMax.to($left, 1, { //地图左移
                     left: '80px'
                 }), this._saleListStep()]);
 
@@ -156,7 +158,7 @@ $(function() {
         _advRegionsStep: function() {
             var $svgMap = $("#sale_map > svg");
 
-            return new TimelineLite()
+            return new TimelineLite({})
                 .add(this._zoomRegionTween('成都'))
                 .add(tipTween())
                 .add(this._zoomRegionTween('德阳'))
