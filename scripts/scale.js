@@ -3,17 +3,10 @@ $(function() {
     /*改变页面title值*/
     $(".header_center").html("售电情况");
     var master = this.master = new TimelineMax({});
-<<<<<<< Updated upstream
-    master.add(saleMapStep());
-    master.add(saleList());
-    master.add(saleListMap());
-    master.add(saleListChange());
-=======
     // master.add(saleMapStep());
     // master.add(saleList());
     // master.add(saleListMap());
     // master.add(saleListChange());
->>>>>>> Stashed changes
 
     function saleMapStep() {
         var step = new TimelineLite({
@@ -43,11 +36,7 @@ $(function() {
     function saleList() {
         var step = new TimelineLite({
             title: "售电情况",
-<<<<<<< Updated upstream
-            onStart: function() {
-=======
             onComplete: function() {
->>>>>>> Stashed changes
             	setInterval(function(){
             		$(".sale_order li").animate({
 			            opacity: 0.25,
@@ -56,12 +45,7 @@ $(function() {
 			        	$(this).css("opacity",1);
 			            $(".sale_order li").slideDown(1000);
 			        });
-<<<<<<< Updated upstream
-            	},5000);
-=======
-            	},7000);
->>>>>>> Stashed changes
-            	
+            	},7000);            	
             }
         });
 
