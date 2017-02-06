@@ -21,7 +21,7 @@ $(function() {
 
         addPage: function(page) {
             this.pages.push(page);
-            this.master.add(page.master);
+            // this.master.add(page.master);
             return this;
         },
         start: function() {
