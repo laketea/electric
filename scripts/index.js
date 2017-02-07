@@ -4,7 +4,7 @@ $(function() {
 
     window.control
         // .addPage(new SummaryPage())
-        .addPage(new SalePage())
-        // .addPage(new PredictPage())
+        // .addPage(new SalePage())
+        .addPage(new PredictPage())
         .start();
 });
