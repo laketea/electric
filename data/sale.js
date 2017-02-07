@@ -25,7 +25,7 @@ $(function() {
                 trigger: 'axis'
             },
             legend: {
-                data: ['月售电量', '网比'],
+                data: ['月售电量', '同比'],
                 textStyle: {
                     color: "#fff",
                 },
@@ -34,69 +34,12 @@ $(function() {
             },
             xAxis: [{
                 type: 'category',
-                data: [{
-                        value: '1月',
-                        textStyle: {
-                            color: "#fff"
-                        }
-                    }, {
-                        value: '2月',
-                        textStyle: {
-                            color: "#fff"
-                        }
-                    }, {
-                        value: '3月',
-                        textStyle: {
-                            color: "#fff"
-                        }
-                    }, {
-                        value: '4月',
-                        textStyle: {
-                            color: "#fff"
-                        }
-                    }, {
-                        value: '5月',
-                        textStyle: {
-                            color: "#fff"
-                        }
-                    }, {
-                        value: '6月',
-                        textStyle: {
-                            color: "#fff"
-                        }
-                    }, {
-                        value: '7月',
-                        textStyle: {
-                            color: "#fff"
-                        }
-                    }, {
-                        value: '8月',
-                        textStyle: {
-                            color: "#fff"
-                        }
-                    }, {
-                        value: '9月',
-                        textStyle: {
-                            color: "#fff"
-                        }
-                    }, {
-                        value: '10月',
-                        textStyle: {
-                            color: "#fff"
-                        }
-                    }, {
-                        value: '11月',
-                        textStyle: {
-                            color: "#fff"
-                        }
-                    }, {
-                        value: '12月',
-                        textStyle: {
-                            color: "#fff"
-                        }
+                data: ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],
+                axisLabel: {
+                    textStyle: {
+                        color: "#fff"
                     }
-
-                ],
+                },
                 axisLine: {
                     lineStyle: {
                         color: "#fff"
@@ -167,7 +110,7 @@ $(function() {
                     }
                 }
             }, {
-                name: '网比',
+                name: '同比',
                 type: 'line',
                 yAxisIndex: 1,
                 data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2],

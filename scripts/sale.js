@@ -83,9 +83,20 @@ $(function() {
                         this.animate({ fill: fill, stroke: "#00fcff" }, 500);
                     })
                     .click(function() {
+                        window.index = 0;
                         clearInterval(saleListTimer);
-                        clearInterval(saleListMapTimer);
                         $("#sale_list").css("opacity",0);
+                        $("#sale_list").css("display","none");
+                        var $obj = $("#sale_list_map");
+                        TweenMax.fromTo($obj, 10, {
+                            opacity: 0,
+                            delay:3
+                        },{
+                            opacity: 1,
+                            delay:3
+                        });
+                        self._selectRegion(key);
+                        clearInterval(saleListMapTimer);
                     });
             });
         },
@@ -155,18 +166,17 @@ $(function() {
                     $("#sale_list").css("display","block");
                     setTimeout(function(){
                         $(".sale_order li").css("opacity",1);
-                    },4000);
-
-                    saleListTimer = setInterval(function() {
-                        $(".sale_order li").animate({
-                            opacity: 0.25,
-                            height: "toggle"
-                        }, 1000, function() {
-                            $(this).css("opacity", 1);
-                            $(".sale_order li").slideDown(1000);
-                        });
-                    },10000);
-
+                    },3000);
+                    window.saleOrderMap();
+                    // saleListTimer = setInterval(function() {
+                    //     $(".sale_order li").animate({
+                    //         opacity: 0.25,
+                    //         height: "toggle"
+                    //     }, 1000, function() {
+                    //         $(this).css("opacity", 1);
+                    //         $(".sale_order li").slideDown(1000);
+                    //     });
+                    // },10000);
                 }
             }).add(
                 TweenMax.fromTo($obj,2, {
@@ -230,11 +240,11 @@ $(function() {
 
             return new TimelineLite()
                 .add(this._zoomRegionTween(key))
-                .add(this._saleListMap())
-                .add(tipTween())
                 .add(TweenMax.to($saleList, 1, {
                     opacity: 0
                 }))
+                .add(this._saleListMap())
+                .add(tipTween())
                 .play();
 
             function tipTween() {
@@ -243,6 +253,11 @@ $(function() {
                     $line3 = $tipWrap.find('.line3'),
                     $content2 = $tipWrap.find('.content2'),
                     $content3 = $tipWrap.find('.content3');
+                $tipWrap.css('opacity', 0);
+                $line2.css('width', 0);
+                $line3.css({'width': 0,"left":297});
+                $content2.css('opacity', 0);
+                $content3.css('opacity', 0);
 
                 return new TimelineLite()
                     .add(TweenMax.to($tipWrap, 0.1, {
@@ -255,7 +270,7 @@ $(function() {
                     }), TweenMax.to($line3, 0.5, {
                         width: 127,
                         left: 170
-                    })]).add(TweenMax.to([$content2, $content3, ], 0.5, {
+                    })]).add(TweenMax.to([$content2, $content3], 0.5, {
                         opacity: 1
                     })).add(TweenMax.to($content2, 5, {
                         opacity: 1
@@ -324,9 +339,9 @@ $(function() {
         _saleListMap: function() {
             var step = new TimelineLite({
                 title: "售电情况",
-                onComplete:function(){
+                onStart:function(){
                     window.drawSaleListMap();
-                    var saleListMapTimer =  setInterval(function(){
+                    saleListMapTimer =  setInterval(function(){
                          $("#company_data").animate({
                             opacity: 0.25,
                             height: "toggle"
@@ -342,7 +357,7 @@ $(function() {
             var $obj = $("#sale_list_map");
 
             step.add(
-                TweenMax.fromTo($obj, 1, {
+                TweenMax.fromTo($obj, 2, {
                     opacity: 0,
                 }, {
                     opacity: 1,
