@@ -11,6 +11,7 @@ $(function() {
                 console.log("summary complete");
             }
         });
+        this.master.timeScale(18);
         this.paper = null; //svg paper
         this.$mapShadow = null;
         this.regions = {};
@@ -254,19 +255,21 @@ $(function() {
 
         _menuList3Step: function() {
             var $obj = $(".menu_list3");
-
-            return TweenLite.to($obj, 2, {
+            idx = 0;
+            return TweenLite.to($obj, 5, {
                 opacity: 1,
                 onStart: function() {
                     setInterval(function() {
-                        $(".menu_list3>div").animate({
+                        $(".menu_list3>div:eq("+(idx%3)+")").animate({
                             opacity: 0.25,
                             height: "toggle"
-                        }, 1000, function() {
-                            $(this).css("opacity", 1);
-                            $(".menu_list3>div").slideDown(1000);
+                        }, 2000,function() {
+                            idx++;
+                             $(this).css("opacity", 1);
+                            // $(".menu_list3>div:eq("+(idx%3)+")").css("opacity",1);
+                            $(".menu_list3>div:eq("+(idx%3)+")").slideDown(2000);
                         });
-                    }, 5000);
+                    }, 7000);
                 }
             });
         }

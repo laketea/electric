@@ -9,7 +9,7 @@ $(function() {
         this.master = new TimelineMax({
             paused: true,
         });
-        this.master.timeScale(1);
+        this.master.timeScale(10);
         this.paper = null; //svg paper
         this.advRegions = ['成都', '乐山', '德阳'];
         this.regions = {};
@@ -40,12 +40,7 @@ $(function() {
             return this;
         },
 
-        _earthStep: function() {
-            var $earth = $(".earth");
-            return TweenMax.to($earth, 4, {
-                opacity: 1
-            });
-        },
+        
         _headerStep: function() {
             var $header = $("#header");
             return TweenMax.to($header, 2, {

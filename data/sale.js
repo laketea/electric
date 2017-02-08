@@ -70,7 +70,7 @@ $(function() {
 
             }, {
                 type: 'value',
-                name: '网比(%)',
+                name: '同比(%)',
                 nameTextStyle: { color: "#fff" },
                 min: 0,
                 max: 25,
@@ -147,7 +147,7 @@ $(function() {
                 trigger: 'axis'
             },
             legend: {
-                data: ['大工业', '大工业同比'],
+                data: ['大工业', '同比'],
                 textStyle: {
                     color: "#fff",
                 },
@@ -247,7 +247,7 @@ $(function() {
                 }
             }, {
                 type: 'value',
-                name: '网比(%)',
+                name: '同比(%)',
                 nameTextStyle: { color: "#fff" },
                 min: 0,
                 max: 25,
@@ -287,7 +287,7 @@ $(function() {
                     }
                 }
             }, {
-                name: '大工业同比',
+                name: '同比',
                 type: 'line',
                 yAxisIndex: 1,
                 data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2],
@@ -323,7 +323,7 @@ $(function() {
                 trigger: 'axis'
             },
             legend: {
-                data: ['大工业', '大工业同比'],
+                data: ['大工业', '同比'],
                 textStyle: {
                     color: "#fff",
                 },
@@ -410,7 +410,7 @@ $(function() {
                 }
             }, {
                 type: 'value',
-                name: '网比(%)',
+                name: '同比(%)',
                 nameTextStyle: { color: "#fff" },
                 min: 0,
                 max: 25,
@@ -438,7 +438,7 @@ $(function() {
                     }
                 }
             }, {
-                name: '大工业同比',
+                name: '同比',
                 type: 'line',
                 yAxisIndex: 1,
                 data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2],

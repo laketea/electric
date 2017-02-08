@@ -1,0 +1,157 @@
+/*重点行业和龙头企业*/
+/*+===================================================================+*/
+#company{
+	position: relative;
+}
+#company .top{
+	position: absolute;
+	top: 20px;
+	left: 11%;
+	width:1053px;
+	height:254px;
+	background: url(../images/company/top_bg.png) no-repeat center center;
+	opacity: 0;
+	text-align: center;
+}
+#company .bottom{
+	position: absolute;
+	top: 290px;
+	left:11%;
+	width:1053px;
+	height:411px;
+	background: url(../images/company/bottom_bg.png) no-repeat center center;
+	opacity: 0;
+	overflow:hidden;
+	
+}
+#company .titleBox{
+	text-align: center;
+}
+#company .title{
+	display: inline-block;
+	color: #fff;
+	font-size: 13px;
+	margin-top: 8px;
+}
+#company .produce_left,#company .produce_right{
+	float:left;
+}
+#company .produce_left{
+	width: 40%;
+}
+#company .produce_right{
+	position: relative;
+	width: 60%;
+}
+#company .produceImgBox{
+	width: 383px;
+	height: 254px;
+	margin-left: 30px;
+	background: url(../images/company/produceImg.png) no-repeat center center;
+}
+.produceText{
+	margin-left: 60px;
+}
+.produceTitle{
+	color: #ff0;
+	font-size: 14px;
+}
+.produceContent{
+	color: #fff;
+	font-size: 12px;
+	line-height: 25px;
+}
+
+.produceMenu{
+	position: relative;
+	top: 5px;
+}
+.produceMenuInfo{
+	position: absolute;
+	left: 20px;
+	top: 10px;
+	width: 158px;
+	height: 62px;
+	color: #fff;
+	font-size: 13px;
+	background: url(../images/company/menu_frame.png) no-repeat center center;
+}
+.produceMenuInfo:nth-child(2){
+	left: 185px;
+}
+.produceMenuInfo:nth-child(3){
+	top: 73px;
+}
+.produceMenuInfo:nth-child(4){
+	top: 73px;
+	left: 185px;
+}
+
+.produceMenuInfo:nth-child(5){
+	width: 239px;
+	height: 125px;
+	left: 350px;
+	background: url(../images/company/menu_max_frame.png) no-repeat center center;
+}
+
+.produceMenuInfo>div{
+	padding-left: 45px;
+	line-height: 31px;
+	margin-top: 10px;
+	background: url(../images/company/company.png) no-repeat 25px center;
+}
+.produceMenuInfo>div>p{
+	margin-left: 30px;
+	line-height: 22px;
+}
+.produceMenuInfo>div>p:nth-child(2){
+	color: #ff0;
+	font-size: 16px;
+}
+.produceMenuInfo>div>p>span{
+	color: #fff;
+	font-size: 13px;
+}
+
+.produceMenuInfo:nth-child(2)>div{
+	background-image: url(../images/company/location.png);
+}
+.produceMenuInfo:nth-child(3)>div{
+	background-image: url(../images/company/sale.png);
+}
+.produceMenuInfo:nth-child(4)>div{
+	background-image: url(../images/company/max.png);
+}
+.produceMenuInfo:nth-child(5)>div{
+	padding-top: 20px;
+	background: url(../images/company/product.png) no-repeat 25px 0px;
+}
+.produceProduct>p:nth-child(1){
+	margin-top: -10px;
+}
+.produceMenuInfo .produceProduct>p:nth-child(2){
+	margin-top: 15px;
+	margin-left: -10px;
+	font-size: 14px;
+}
+.produceMap{
+	position: absolute;
+	top: 150px;
+	left: 20px;
+	width: 569px;
+	height: 222px;
+	background: url(../images/company/map.png) no-repeat left center;
+}
+
+#carousel{
+	position:relative;
+    width:2400px;
+    /*overflow: hidden;*/
+}
+#carousel li {
+    position:relative;
+    float:left;
+    width:1053px;
+    height:411px;
+    
+}
